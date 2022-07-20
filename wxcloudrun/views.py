@@ -25,7 +25,7 @@ def count():
     # 获取请求体参数
     params = request.get_json()
 
-    print(json.dumps(params))
+    rhb = json.dumps(params)
 
     # 检查action参数
     if 'action' not in params:
@@ -49,7 +49,7 @@ def count():
             counter.count += 1
             counter.updated_at = datetime.now()
             update_counterbyid(counter)
-        return make_succ_response(counter.count)
+        return make_succ_response(counter.count, rhb)
 
     # 执行清0操作
     elif action == 'clear':

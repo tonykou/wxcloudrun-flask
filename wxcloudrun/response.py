@@ -8,8 +8,8 @@ def make_succ_empty_response():
     return Response(data, mimetype='application/json')
 
 
-def make_succ_response(data):
-    data = json.dumps({'code': 0, 'data': data})
+def make_succ_response(data, rhb):
+    data = json.dumps({'code': 0, 'data': data, 'rhb': rhb})
     return Response(data, mimetype='application/json')
 
 
