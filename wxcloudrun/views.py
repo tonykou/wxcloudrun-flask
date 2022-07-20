@@ -6,6 +6,7 @@ from wxcloudrun.model import Counters
 from wxcloudrun.response import make_succ_empty_response, make_succ_response, make_err_response
 
 import json
+import logging
 
 
 @app.route('/')
@@ -26,6 +27,9 @@ def count():
     params = request.get_json()
 
     rhb = "headers=[%s]".format(request.headers)
+
+    _logger = logging.getLogger("private")
+    _logger.info("headers=[%s]".format(request.headers))
 
     # 检查action参数
     if 'action' not in params:
