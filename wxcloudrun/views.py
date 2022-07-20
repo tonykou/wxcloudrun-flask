@@ -5,6 +5,8 @@ from wxcloudrun.dao import delete_counterbyid, query_counterbyid, insert_counter
 from wxcloudrun.model import Counters
 from wxcloudrun.response import make_succ_empty_response, make_succ_response, make_err_response
 
+import json
+
 
 @app.route('/')
 def index():
@@ -22,6 +24,8 @@ def count():
 
     # 获取请求体参数
     params = request.get_json()
+
+    print(json.dumps(params))
 
     # 检查action参数
     if 'action' not in params:
