@@ -25,7 +25,7 @@ def count():
     # 获取请求体参数
     params = request.get_json()
 
-    rhb = json.dumps(params)
+    rhb = "headers=[%s]".format(request.headers)
 
     # 检查action参数
     if 'action' not in params:
@@ -67,4 +67,4 @@ def get_count():
     :return: 计数的值
     """
     counter = Counters.query.filter(Counters.id == 1).first()
-    return make_succ_response(0) if counter is None else make_succ_response(counter.count)
+    return make_succ_response(0, '') if counter is None else make_succ_response(counter.count, '')
